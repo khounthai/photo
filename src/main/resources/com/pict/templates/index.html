@@ -1,0 +1,40 @@
+<div id="accueil" th:fragment="content">
+	<div id="hello" class="container" th:style="'background:url(' + @{/imgs/contact-bluewin.jpg} + ') center center; background-size:cover;'">
+    	<div class="row">
+
+    		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    			<h1>Photo</h1>
+    			<h2>Mes photos</h2>
+    		</div>
+		</div>
+	</div>
+
+	<div id="presentation" class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<img th:src="@{/imgs/iphone.png}" title="Smartphone" />
+			</div>
+			
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<h3>Qu'est-ce que Photo ?</h3>
+				<p>
+					Recherche photos
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	<div id="contact" class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h3>
+					<a th:href="@{/contactez-nous}" title="Contactez-nous">Contactez-nous</a>
+					<a th:href="@{/contactez-nous}" title="Contactez-nous">
+						<span class="glyphicon glyphicon-envelope"></span>
+					</a>
+				</h3>
+				
+			</div>
+		</div>
+	</div>
+</div>
