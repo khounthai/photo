@@ -13,6 +13,8 @@
 	
 	<link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/bootstrap.css}" />
 	<link rel="stylesheet/less" type="text/css" media="screen" th:href="@{/less/ucontact.less}" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" th:href="@{/js/jquery-ui-1.12.1/jquery-ui.css}" />
 	<div th:replace="${view} :: css">
 		CSS
 	</div>
@@ -57,14 +59,16 @@
 	<div id="footer" class="container">
 		<div class="row">
 			<div class="col-md-offset-1 col-sd-10 col-md-8 col-md-offset-3 col-lg-8 col-lg-offset-3">
-				<p>U-CONTACT - CESI WEB PROJECT</p>
+				<p>PHOTO---</p>
 			</div>
 		</div>
 	</div>
 	
-	<script th:src="@{/js/jquery.min.js}"></script>
 	<script th:src="@{/js/bootstrap.js}"></script>
 	<script th:src="@{/js/less.min.js}"></script>
+	
+ 	 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ 	   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<div th:replace="${view} :: javascript">
 		Code Javascript
 	</div>
