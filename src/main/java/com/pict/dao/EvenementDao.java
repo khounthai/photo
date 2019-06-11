@@ -13,6 +13,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 import com.pict.entity.Evenement;
+import com.pict.entity.Lieu;
 
 @Repository
 public class EvenementDao {
@@ -110,6 +111,36 @@ public class EvenementDao {
 		}
 
 		return e;
+	}
+	
+	public List<Evenement> Autocomplete(String term) {
+		List<Evenement> liste = null;
+
+		try {
+			Connection conn = (Connection) database.getSqlConnection();
+
+			String sql = "select id,nom from evenement where nom like ?";
+			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, term+"%");
+
+			//System.out.println(sql);
+			ResultSet rs = ps.executeQuery();
+
+			liste=new ArrayList<Evenement>();
+			
+			while (rs.next()) {				
+				liste.add( new Evenement(rs.getInt(1),rs.getString(2)));
+			}
+
+			rs.close();
+			ps.close();
+
+		} catch (SQLException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+
+		return liste;
 	}
 	
 	public long Save(Evenement e) {

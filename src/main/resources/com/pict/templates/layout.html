@@ -10,15 +10,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>Photo</title>
+		
+		<link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/bootstrap.css}" />
+		<link rel="stylesheet/less" type="text/css" media="screen"  th:href="@{/less/ucontact.less}" />
+		<link rel="stylesheet" type="text/css" media="screen"  th:href="@{/jquery/1.12.1/jquery-ui.css}" />
+		<div th:replace="${view} :: css">
+			CSS
+		</div>  	
+  	
+ 	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>	
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/less.min.js}"></script>
 	
-	<link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/bootstrap.css}" />
-	<link rel="stylesheet/less" type="text/css" media="screen" th:href="@{/less/ucontact.less}" />
-	
-	<link rel="stylesheet" type="text/css" media="screen" th:href="@{/js/jquery-ui-1.12.1/jquery-ui.css}" />
-	<div th:replace="${view} :: css">
-		CSS
+	<script th:src="@{/jquery/1.12.1/jquery-ui.js}"></script>    
+	<div th:replace="${view} :: javascript">
+		Code Javascript
 	</div>
-
+	
+	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -63,16 +73,6 @@
 			</div>
 		</div>
 	</div>
-	
-	<script th:src="@{/js/bootstrap.js}"></script>
-	<script th:src="@{/js/less.min.js}"></script>
-	
- 	 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- 	   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<div th:replace="${view} :: javascript">
-		Code Javascript
-	</div>
-	
 	
 </body>
 </html>

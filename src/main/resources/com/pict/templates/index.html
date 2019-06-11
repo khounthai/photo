@@ -4,20 +4,29 @@
 
 		<div class="row">
 
-			<form id="rechercheForm" autocomplete="on" class="col">
+			<form id="rechercheForm" autocomplete="on" class="col" >
 
 				<div class="container">
 
 					<div class="row">
 
 						<div class="col col-lg-3">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text" id="inputGroup-sizing-default">Nom</span>
+							<div class="input-group mb-3">								
+								<div class="dropdown">
+								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    Nom
+								  </button>
+								  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+								  <div  class="input-group mb-0" th:each="item : ${listePersonne}" >
+								  	<div class="input-group-prepend" style="margin-left: 10px;argin-bottom: 2rem !important">
+								    <input class="dropdown-item"  type="checkbox" name="isPresent" value="false" />
+								    </div>
+								    <label th:text="${item.prenom}+' '+${item.nom}" style="margin-left: 10px;"/>
+								  </div>
+								  </div>
 								</div>
-								<input id="inputnom" type="text"
-									class="form-control" aria-label="Sizing example input"
-									aria-describedby="inputGroup-sizing-default"  />
+								
+								<input id="inputnom" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></input>
 							</div>
 						</div>
 
@@ -26,20 +35,16 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="inputGroup-sizing-default">Lieu</span>
 								</div>
-								<input id="inputlieu" type="text" class="form-control"
-									aria-label="Sizing example input"
-									aria-describedby="inputGroup-sizing-default" />
+								<input id="inputlieu" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
 							</div>
 						</div>
 
 						<div class="col col-lg-3">
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text" id="inputGroup-sizing-default">Evènement</span>
+									<span class="input-group-text" id="inputGroup-sizing-default">Ev&eacute;nement</span>
 								</div>
-								<input type="text" class="form-control"
-									aria-label="Sizing example input"
-									aria-describedby="inputGroup-sizing-default" />
+								<input id="inputevenement" type="text" class="form-control"	aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
 							</div>
 						</div>
 
@@ -50,7 +55,6 @@
 
 			</form>
 
-
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<h1>Photo</h1>
 				<h2>Mes photos</h2>
@@ -58,6 +62,7 @@
 		</div>
 	</div>
 
+	 
 	<div id="presentation" class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -69,7 +74,7 @@
 				<p>Recherche photos</p>
 			</div>
 		</div>
-	</div>
+	</div>	
 
 	<div id="contact" class="container">
 		<div class="row">
@@ -84,9 +89,8 @@
 			</div>
 		</div>
 	</div>
-								
+	
 </div>
-
 
 <script th:fragment="javascript">
 		$(function() {		   
@@ -99,11 +103,14 @@
 				source:"AutocompleteLieu",
 				minLength:1
 			});
-		});
-		
-		$(function() {			
+						
+			$("#inputevenement").autocomplete({
+				source:"AutocompleteEvenement",
+				minLength:1
+			});
 			
 		});
+		
 </script>
 
 

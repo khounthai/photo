@@ -210,7 +210,7 @@ public class PersonneDao {
 		try {
 			Connection conn = (Connection) database.getSqlConnection();
 
-			String sql = "select id,prenom,nom from personne";
+			String sql = "select id,prenom,nom from personne order by nom,prenom";
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 			
 			// System.out.println(sql);
@@ -270,8 +270,8 @@ public class PersonneDao {
 
 			String sql = "select * from personne where (nom like ?) or (prenom like ?)";
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1,  "%"+term + "%");
-			ps.setString(2,  "%"+term + "%");
+			ps.setString(1,  term + "%");
+			ps.setString(2,  term + "%");
 			
 			//System.out.println(sql);
 			ResultSet rs = ps.executeQuery();

@@ -119,7 +119,7 @@ public class LieuDao {
 
 			String sql = "select id,nom from lieu where nom like ?";
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1, "%"+term+"%");
+			ps.setString(1, term+"%");
 
 			//System.out.println(sql);
 			ResultSet rs = ps.executeQuery();
@@ -140,8 +140,6 @@ public class LieuDao {
 
 		return liste;
 	}
-
-	
 	
 	public long Save(Lieu l) {
 		long result = 0;

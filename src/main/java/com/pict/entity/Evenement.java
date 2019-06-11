@@ -29,4 +29,11 @@ public class Evenement {
 		this.id=id;
 		this.nom=nom;
 	}
+
+	@Override
+	public String toString() {
+		return nom;
+	}
+	
+	
 }

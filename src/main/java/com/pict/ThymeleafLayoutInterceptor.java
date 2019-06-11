@@ -18,8 +18,7 @@ public class ThymeleafLayoutInterceptor extends HandlerInterceptorAdapter {
         {	
             return;
         }
-        
-        
+                
         String originalViewName = modelAndView.getViewName();
         
         modelAndView.setViewName(DEFAULT_LAYOUT);
